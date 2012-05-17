@@ -1,0 +1,7 @@
+C:\Projects\AcklenAvenue\src\AcklenAvenue.Data\bin\Debug\AcklenAvenue.Data.dll
+C:\Projects\AcklenAvenue\src\AcklenAvenue.Data\bin\Debug\AcklenAvenue.Data.pdb
+C:\Projects\AcklenAvenue\src\AcklenAvenue.Data\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\AcklenAvenue\src\AcklenAvenue.Data\obj\Debug\AcklenAvenue.Data.dll
+C:\Projects\AcklenAvenue\src\AcklenAvenue.Data\obj\Debug\AcklenAvenue.Data.pdb
+C:\Projects\AcklenAvenue\build\AcklenAvenue.Data.dll
+C:\Projects\AcklenAvenue\build\AcklenAvenue.Data.pdb
