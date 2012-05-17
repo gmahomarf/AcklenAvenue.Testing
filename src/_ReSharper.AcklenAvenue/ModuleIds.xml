@@ -1,5 +1,0 @@
-<Modules>
-  <Module PersistentId="91434831-B9CC-4074-BCCF-D7C4FBF473A0" ModuleId="AcklenAvenue.Data.NHibernate" />
-  <Module PersistentId="4AE6A646-F049-4C5B-B338-709AD5BC77CB" ModuleId="AcklenAvenue.Data" />
-  <Module PersistentId="54CC3D00-B92D-4C60-9EE6-065527130CD7" ModuleId="AcklenAvenue.Data.NHibernate.StructureMap" />
-</Modules>
