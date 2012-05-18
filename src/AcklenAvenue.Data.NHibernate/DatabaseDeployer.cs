@@ -19,10 +19,17 @@ namespace AcklenAvenue.Data.NHibernate
 
         public void Drop()
         {
-            DropAllForeignKeysFromDatabase();
-            var schemaExport = new SchemaExport(_nhibernateConfiguration);
+            try
+            {
+                DropAllForeignKeysFromDatabase();
+                var schemaExport = new SchemaExport(_nhibernateConfiguration);
 
-            schemaExport.Drop(true, true);
+                schemaExport.Drop(true, true);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
         public void Create()
