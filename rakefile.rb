@@ -1,5 +1,5 @@
 MSBUILD_PATH = "C:/Windows/Microsoft.NET/Framework/v4.0.30319/msbuild.exe"
-MSPEC_PATH = "lib/MSpecCommandLine/mspec-clr4.exe"
+MSPEC_PATH = "lib/Machine.Specifications.0.5.6.0/tools/mspec-clr4.exe"
 #MSTEST_PATH = "\"" + ENV['VS90COMNTOOLS'].gsub("Tools","IDE") + "mstest.exe\""
 BUILD_PATH = File.expand_path('build')
 DEPLOY_PATH = File.expand_path('deploy')
@@ -10,7 +10,7 @@ CONFIG = "Debug"
 
 task :default => [:all]
 
-task :all => [:prepare, :compile ]
+task :all => [:prepare, :compile, :tests ]
 
 task :prepare do
 	require 'fileutils'
