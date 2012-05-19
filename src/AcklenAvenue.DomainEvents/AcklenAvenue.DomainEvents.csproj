@@ -43,7 +43,6 @@
     <Compile Include="ActionEventDispatcher.cs" />
     <Compile Include="DomainEvent.cs" />
     <Compile Include="IDispatcher.cs" />
-    <Compile Include="IEvent.cs" />
     <Compile Include="NoDispatcherException.cs" />
     <Compile Include="NoHandlerAvailable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

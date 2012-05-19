@@ -1,6 +1,6 @@
 ﻿namespace AcklenAvenue.DomainEvents.StructureMap
 {
-    public interface IEventHandler<in T> where T : IEvent
+    public interface IEventHandler<in T> 
     {
         void Handle(T @event);
     }

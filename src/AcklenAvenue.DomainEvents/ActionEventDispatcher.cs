@@ -9,7 +9,7 @@ namespace AcklenAvenue.DomainEvents
 
         #region IDispatcher Members
 
-        public void Dispatch<T>(T @event) where T : IEvent
+        public void Dispatch<T>(T @event)
         {
             if (!_handlers.ContainsKey(typeof(T))) throw new NoHandlerAvailable<T>();
             var handler = (Action<T>)_handlers[typeof(T)];

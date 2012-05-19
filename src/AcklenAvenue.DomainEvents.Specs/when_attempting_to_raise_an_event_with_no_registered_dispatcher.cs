@@ -7,10 +7,10 @@ namespace AcklenAvenue.DomainEvents.Specs
 {
     public class when_attempting_to_raise_an_event_with_no_registered_dispatcher
     {
-        static Mock<IEvent> _event;
+        static Mock<object> _event;
         static Exception _exception;
 
-        Establish context = () => { _event = new Mock<IEvent>(); };
+        Establish context = () => { _event = new Mock<object>(); };
 
         Because of = () => _exception = Catch.Exception(() => DomainEvent.Raise(_event.Object));
 

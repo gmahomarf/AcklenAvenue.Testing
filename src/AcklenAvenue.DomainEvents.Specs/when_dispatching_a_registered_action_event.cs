@@ -7,16 +7,16 @@ namespace AcklenAvenue.DomainEvents.Specs
     public class when_dispatching_a_registered_action_event
     {
         static ActionEventDispatcher _dispatcher;
-        static Mock<IEvent> _event;
-        static IEvent _eventDispatched;
+        static Mock<object> _event;
+        static object _eventDispatched;
 
         Establish context = () =>
             {
                 _dispatcher = new ActionEventDispatcher();
 
-                _dispatcher.Register<IEvent>(x => { _eventDispatched = x; });
+                _dispatcher.Register<object>(x => { _eventDispatched = x; });
 
-                _event = new Mock<IEvent>();
+                _event = new Mock<object>();
             };
 
         Because of = () => _dispatcher.Dispatch(_event.Object);

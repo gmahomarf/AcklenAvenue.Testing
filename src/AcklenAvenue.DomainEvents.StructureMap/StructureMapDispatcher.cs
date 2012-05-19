@@ -14,7 +14,7 @@ namespace AcklenAvenue.DomainEvents.StructureMap
 
         #region IDispatcher Members
 
-        public void Dispatch<T>(T @event) where T : IEvent
+        public void Dispatch<T>(T @event)
         {
             var eventHandlers = _container.GetAllInstances<IEventHandler<T>>().ToList();
             if(!eventHandlers.Any())

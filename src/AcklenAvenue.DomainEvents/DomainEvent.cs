@@ -4,7 +4,7 @@
     {
         static IDispatcher _dispatcher;
 
-        public static void Raise<T>(T @event) where T : IEvent
+        public static void Raise<T>(T @event)
         {
             if (_dispatcher == null)
             {

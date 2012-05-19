@@ -10,20 +10,20 @@ namespace AcklenAvenue.DomainEvents.StructureMap.Specs
     {
         static Container _container;        
         static IDispatcher _dispatcher;
-        static Mock<IEvent> _event;
+        static Mock<object> _event;
         static Exception _exception;
 
         Establish context = () =>
             {
                 _container = new Container();
-                
-                _event = new Mock<IEvent>();
+
+                _event = new Mock<object>();
 
                 _dispatcher = new StructureMapDispatcher(_container);
             };
 
         Because of = () => _exception = Catch.Exception(() => _dispatcher.Dispatch(_event.Object));
 
-        It should_the_the_expected_exception = () => _exception.ShouldBeOfType<NoHandlerAvailable<IEvent>>();
+        It should_the_the_expected_exception = () => _exception.ShouldBeOfType<NoHandlerAvailable<object>>();
     }
 }
