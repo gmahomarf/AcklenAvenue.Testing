@@ -1,4 +1,4 @@
-﻿namespace AcklenAvenue.DomainEvents.StructureMap
+﻿namespace AcklenAvenue.DomainEvents
 {
     public interface IEventHandler<in T> 
     {

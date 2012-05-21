@@ -1,4 +1,6 @@
-﻿namespace AcklenAvenue.DomainEvents
+﻿using System;
+
+namespace AcklenAvenue.DomainEvents
 {
     public static class DomainEvent
     {
