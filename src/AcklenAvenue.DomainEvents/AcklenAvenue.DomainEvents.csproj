@@ -45,7 +45,6 @@
     <Compile Include="IDispatcher.cs" />
     <Compile Include="IEventHandler.cs" />
     <Compile Include="NoDispatcherException.cs" />
-    <Compile Include="NoHandlerAvailable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

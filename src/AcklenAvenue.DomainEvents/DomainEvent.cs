@@ -19,5 +19,5 @@ namespace AcklenAvenue.DomainEvents
         {
             _dispatcher = dispatcher;
         }
-    }
+    }    
 }

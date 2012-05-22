@@ -16,11 +16,7 @@ namespace AcklenAvenue.DomainEvents.StructureMap
 
         public void Dispatch<T>(T @event)
         {
-            var eventHandlers = _container.GetAllInstances<IEventHandler<T>>().ToList();
-            if(!eventHandlers.Any())
-            {
-                throw new NoHandlerAvailable<T>();
-            }
+            var eventHandlers = _container.GetAllInstances<IEventHandler<T>>().ToList();            
             eventHandlers
                 .ForEach(handler => handler.Handle(@event));
         }

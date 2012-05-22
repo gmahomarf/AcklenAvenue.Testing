@@ -52,9 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="when_dispatching_an_event_with_handler_registered_in_the_container.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="when_attempting_to_dispatch_an_event_with_no_matching_handler_registered_in_the_container.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
