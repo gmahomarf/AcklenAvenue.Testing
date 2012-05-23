@@ -1,14 +1,12 @@
 ﻿namespace AcklenAvenue.DomainEvents.Specs
 {
-    public class Account : IDomainEventObservable
+    public class Account
     {
         public string Name { get; private set; }
 
-        #region IEventRaiser Members
+        public Location Location { get; set; }
 
         public event DomainEvent NotifyObservers;
-
-        #endregion
 
         public void ChangeName(string newName)
         {

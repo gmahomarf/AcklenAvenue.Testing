@@ -1,4 +1,4 @@
 ﻿namespace AcklenAvenue.DomainEvents
 {
-    public delegate void DomainEvent(object sender);
+    public delegate void DomainEvent(object @event);
 }
