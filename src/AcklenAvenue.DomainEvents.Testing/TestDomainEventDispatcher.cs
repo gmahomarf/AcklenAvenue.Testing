@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace AcklenAvenue.DomainEvents.Testing
 {
-    public class TestDispatcher : IDispatcher
+    public class TestDomainEventDispatcher : IDomainEventDispatcher
     {
         readonly List<object> _list = new List<object>();
 

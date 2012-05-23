@@ -3,11 +3,11 @@ using StructureMap;
 
 namespace AcklenAvenue.DomainEvents.StructureMap
 {
-    public class StructureMapDispatcher : IDispatcher
+    public class StructureMapDomainEventDispatcher : IDomainEventDispatcher
     {
         readonly IContainer _container;
 
-        public StructureMapDispatcher(IContainer container)
+        public StructureMapDomainEventDispatcher(IContainer container)
         {
             _container = container;
         }
@@ -16,9 +16,8 @@ namespace AcklenAvenue.DomainEvents.StructureMap
 
         public void Dispatch<T>(T @event)
         {
-            var eventHandlers = _container.GetAllInstances<IEventHandler<T>>().ToList();            
-            eventHandlers
-                .ForEach(handler => handler.Handle(@event));
+            var eventHandlers = _container.GetAllInstances<IDomainEventHandler<T>>().ToList();            
+            eventHandlers.ForEach(handler => handler.Handle(@event));
         }
 
         #endregion

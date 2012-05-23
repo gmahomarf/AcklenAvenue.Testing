@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AcklenAvenue.DomainEvents
 {
-    public class ActionEventDispatcher : IDispatcher
+    public class ActionDomainEventDispatcher : IDomainEventDispatcher
     {
         readonly IDictionary<Type, Delegate> _handlers = new Dictionary<Type, Delegate>();
 
