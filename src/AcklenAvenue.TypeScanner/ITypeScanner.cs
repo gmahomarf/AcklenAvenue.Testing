@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace AcklenAvenue.TypeScanner
 {
-    public interface ITypeScanner<T>
+    public interface ITypeScanner
     {
-        List<Type> GetTypes();
+        List<Type> GetTypesOf<T>();
     }
 }

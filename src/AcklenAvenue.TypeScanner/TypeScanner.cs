@@ -6,22 +6,17 @@ using System.Reflection;
 
 namespace AcklenAvenue.TypeScanner
 {
-    public class TypeScanner<T> : ITypeScanner<T>
+    public class TypeScanner : ITypeScanner
     {
-        public List<Type> GetTypes()
+        public List<Type> GetTypesOf<T>()
         {
             var assemblies = GetLocalAssemblies();
             var manyTypes = assemblies
                 .SelectMany(x => x.GetTypes());
 
             return manyTypes
-                .Where(IsImplementationOfIMessage).ToList();
-        }
-
-        static bool IsImplementationOfIMessage(Type x)
-        {
-            return typeof(T).IsAssignableFrom(x)
-                   && x.IsClass;
+                .Where(x => typeof (T).IsAssignableFrom(x)
+                            && x.IsClass).ToList();
         }
 
         static IEnumerable<Assembly> GetLocalAssemblies()
