@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AcklenAvenue.DomainEvents
 {
-    public class ActionEventDispatcher : IDispatcher
+    public class ActionDomainEventDispatcher : IDomainEventDispatcher
     {
         readonly IDictionary<Type, Delegate> _handlers = new Dictionary<Type, Delegate>();
 
@@ -11,7 +11,7 @@ namespace AcklenAvenue.DomainEvents
 
         public void Dispatch<T>(T @event)
         {
-            if (!_handlers.ContainsKey(typeof(T))) throw new NoHandlerAvailable<T>();
+            if (!_handlers.ContainsKey(typeof(T))) return;
             var handler = (Action<T>)_handlers[typeof(T)];
             handler.Invoke(@event);
         }

@@ -1,6 +1,6 @@
 ﻿namespace AcklenAvenue.DomainEvents
 {
-    public interface IEventHandler<in T> 
+    public interface IDomainEventHandler<in T> 
     {
         void Handle(T @event);
     }

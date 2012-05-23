@@ -2,7 +2,7 @@
 
 namespace AcklenAvenue.DomainEvents
 {
-    public interface IDispatcher
+    public interface IDomainEventDispatcher
     {
         void Dispatch<T>(T @event);        
     }

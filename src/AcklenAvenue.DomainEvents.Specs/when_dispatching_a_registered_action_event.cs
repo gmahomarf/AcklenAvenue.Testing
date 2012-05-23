@@ -6,13 +6,13 @@ namespace AcklenAvenue.DomainEvents.Specs
 {
     public class when_dispatching_a_registered_action_event
     {
-        static ActionEventDispatcher _dispatcher;
+        static ActionDomainEventDispatcher _dispatcher;
         static Mock<object> _event;
         static object _eventDispatched;
 
         Establish context = () =>
             {
-                _dispatcher = new ActionEventDispatcher();
+                _dispatcher = new ActionDomainEventDispatcher();
 
                 _dispatcher.Register<object>(x => { _eventDispatched = x; });
 
