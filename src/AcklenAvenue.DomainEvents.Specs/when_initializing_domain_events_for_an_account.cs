@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using AcklenAvenue.DomainEvents.Testing;
 using Machine.Specifications;
+using Moq;
+using It = Machine.Specifications.It;
 
 namespace AcklenAvenue.DomainEvents.Specs
 {
@@ -8,11 +10,13 @@ namespace AcklenAvenue.DomainEvents.Specs
     {
         static DomainEventInitializer _initializer;
         static Account _account;
-        static List<object> _eventsRaised;
+        static TestDomainEventDispatcher _mockDispatcher;
 
         Establish context = () =>
             {
-                _initializer = new DomainEventInitializer();
+                _mockDispatcher = new TestDomainEventDispatcher();
+                _initializer = new DomainEventInitializer(_mockDispatcher);
+
                 var location = new Location
                     {
                         Account = new Account
@@ -27,13 +31,11 @@ namespace AcklenAvenue.DomainEvents.Specs
                     {
                         Location = location
                     };
-
-                _eventsRaised = new List<object>();
             };
 
         Because of = () =>
             {
-                _initializer.Initialize(_account, x => _eventsRaised.Add(x));
+                _initializer.WireUpDomainEvents(_account);
                 _account.ChangeName("something else");
                 _account.Location.ChangeLocation("my house");
                 _account.Location.Account.ChangeName("changing");
@@ -41,12 +43,9 @@ namespace AcklenAvenue.DomainEvents.Specs
             };
 
         It should_have_initialized_the_notifier_in_the_child_object =
-            () =>
-                {
-                    _eventsRaised.Any(x => x.GetType().Equals(typeof(LocationChanged))).ShouldBeTrue();
-                };
+            () => _mockDispatcher.ShouldHaveDispatched<LocationChanged>();
 
         It should_have_initialized_the_notifier_in_the_parent_object =
-            () => _eventsRaised.Any(x => x.GetType().Equals(typeof (NameChanged))).ShouldBeTrue();
+            () => _mockDispatcher.ShouldHaveDispatched<NameChanged>();
     }
 }

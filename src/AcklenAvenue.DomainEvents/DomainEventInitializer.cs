@@ -7,11 +7,20 @@ namespace AcklenAvenue.DomainEvents
 {
     public class DomainEventInitializer : IDomainEventInitializer
     {
+        readonly IDomainEventDispatcher _dispatcher;
+
+        public DomainEventInitializer(IDomainEventDispatcher dispatcher)
+        {
+            _dispatcher = dispatcher;
+        }
+
         #region IDomainEventInitializer Members
 
-        public void Initialize<T>(T obj, DomainEvent eventHandler)
+        public void WireUpDomainEvents<T>(T obj)
         {
             var seen = new HashSet<object>();
+            
+            DomainEvent eventHandler = x => _dispatcher.Dispatch(x);
             Set(obj, eventHandler, seen);
             Dig(obj, eventHandler, seen);
         }
