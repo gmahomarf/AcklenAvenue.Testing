@@ -16,7 +16,7 @@ namespace AcklenAvenue.DomainEvents
 
         #region IDomainEventInitializer Members
 
-        public void WireUpDomainEvents<T>(T obj)
+        public void WireUpDomainEvent<T>(T obj)
         {
             var seen = new HashSet<object>();
             

@@ -4,6 +4,6 @@ namespace AcklenAvenue.DomainEvents
 {
     public interface IDomainEventInitializer
     {
-        void WireUpDomainEvents<T>(T obj);
+        void WireUpDomainEvent<T>(T obj);
     }
 }

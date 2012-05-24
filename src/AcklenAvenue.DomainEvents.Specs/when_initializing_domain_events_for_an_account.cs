@@ -35,7 +35,7 @@ namespace AcklenAvenue.DomainEvents.Specs
 
         Because of = () =>
             {
-                _initializer.WireUpDomainEvents(_account);
+                _initializer.WireUpDomainEvent(_account);
                 _account.ChangeName("something else");
                 _account.Location.ChangeLocation("my house");
                 _account.Location.Account.ChangeName("changing");
