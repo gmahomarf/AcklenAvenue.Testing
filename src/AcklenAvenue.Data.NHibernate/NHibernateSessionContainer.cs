@@ -45,8 +45,7 @@ namespace AcklenAvenue.Data.NHibernate
 
         public void Dispose()
         {
-            CurrentSessionContext.Unbind(_sessionFactory);
-            _sessionFactory.Dispose();            
+            CurrentSessionContext.Unbind(_sessionFactory).Close();                        
         }
 
         #endregion
