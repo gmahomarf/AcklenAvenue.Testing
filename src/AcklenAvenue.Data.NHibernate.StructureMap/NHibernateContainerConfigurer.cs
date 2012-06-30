@@ -17,14 +17,14 @@ namespace AcklenAvenue.Data.NHibernate.StructureMap
             container.Configure(x =>
                 {
                     x.For<ISessionFactory>()
-                        .Singleton()
+                        .HybridHttpOrThreadLocalScoped()
                         .Use(_sessionFactoryBuilder.Build());
 
-                    x.For<ISessionContainer>()
-                        .Use<NHibernateSessionContainer>();
+                    x.For<ISessionContainer>().Use<SessionContainer>();
+
+                    x.For<SessionContainerConfigurator>().Use<NHibernateContextSessionContainerConfigurator>();
 
                     x.For<IUnitOfWork<ISession>>().Use<UnitOfWork>();
-
                 });            
         }          
     }
