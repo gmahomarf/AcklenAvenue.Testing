@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("AcklenAvenue.Testing.BDD.NUnit")]
-[assembly: AssemblyDescription("BDD-Style Extensions for NUnit")]
+[assembly: AssemblyTitle("AcklenAvenue.Testing.BDD.MSTest")]
+[assembly: AssemblyDescription("BDD-Style Extensions for MSTest")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Acklen Avenue")]
-[assembly: AssemblyProduct("AcklenAvenue.Testing.BDD.NUnit")]
+[assembly: AssemblyProduct("AcklenAvenue.Testing.BDD.MSTest")]
 [assembly: AssemblyCopyright("Copyright © Acklen Avenue, LLC 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
