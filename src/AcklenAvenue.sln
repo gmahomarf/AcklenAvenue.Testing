@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Data.Sample.Da
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{60209514-E378-4B9F-A281-909975969C8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Testing.BDD.NUnit", "AcklenAvenue.Testing.BDD.NUnit\AcklenAvenue.Testing.BDD.NUnit.csproj", "{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,14 +111,24 @@ Global
 		{DC34EA80-9994-406F-81DF-CC9877569D63}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DC34EA80-9994-406F-81DF-CC9877569D63}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DC34EA80-9994-406F-81DF-CC9877569D63}.Release|x86.ActiveCfg = Release|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{25490EFB-2BC7-4815-9A7D-2EE65777CA30} = {60209514-E378-4B9F-A281-909975969C8A}
-		{DC34EA80-9994-406F-81DF-CC9877569D63} = {60209514-E378-4B9F-A281-909975969C8A}
 		{C14325CC-96AB-40C4-9616-5E84713EB897} = {60209514-E378-4B9F-A281-909975969C8A}
+		{DC34EA80-9994-406F-81DF-CC9877569D63} = {60209514-E378-4B9F-A281-909975969C8A}
 		{6457054C-09E5-41E9-88D4-CFA1D6132681} = {60209514-E378-4B9F-A281-909975969C8A}
 	EndGlobalSection
 EndGlobal
