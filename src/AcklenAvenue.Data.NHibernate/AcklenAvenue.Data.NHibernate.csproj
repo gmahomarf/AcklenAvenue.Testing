@@ -56,7 +56,7 @@
     <Compile Include="DefaultSessionContainerConfigurator.cs" />
     <Compile Include="ISessionContainer.cs" />
     <Compile Include="ISessionFactoryBuilder.cs" />
-    <Compile Include="NHibernateContextSessionContainer.cs" />
+    <Compile Include="SessionContainer.cs" />
     <Compile Include="NHibernateContextSessionContainerConfigurator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionContainerConfigurator.cs" />

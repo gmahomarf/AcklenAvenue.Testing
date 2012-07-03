@@ -20,11 +20,13 @@ namespace AcklenAvenue.Data.NHibernate.StructureMap
                         .HybridHttpOrThreadLocalScoped()
                         .Use(_sessionFactoryBuilder.Build());
 
-                    x.For<ISessionContainer>().Use<SessionContainer>();
+                    x.For<ISessionContainer>().Use<SessionContainer>();                    
 
-                    x.For<SessionContainerConfigurator>().Use<NHibernateContextSessionContainerConfigurator>();
+                    x.For<ISessionContainerConfigurator>().Use<NHibernateContextSessionContainerConfigurator>();
 
                     x.For<IUnitOfWork<ISession>>().Use<UnitOfWork>();
+
+                    x.For<ISessionFactoryBuilder>().Use(_sessionFactoryBuilder);
                 });            
         }          
     }

@@ -5,9 +5,9 @@ namespace AcklenAvenue.Data.NHibernate
     public class SessionContainer : ISessionContainer
     {
         readonly ISessionFactory _sessionFactory;
-        readonly SessionContainerConfigurator _sessionContainerConfigurator;
+        readonly ISessionContainerConfigurator _sessionContainerConfigurator;
 
-        protected SessionContainer(ISessionFactory sessionFactory, SessionContainerConfigurator sessionContainerConfigurator)
+        public SessionContainer(ISessionFactory sessionFactory, ISessionContainerConfigurator sessionContainerConfigurator)
         {
             _sessionFactory = sessionFactory;
             _sessionContainerConfigurator = sessionContainerConfigurator;
