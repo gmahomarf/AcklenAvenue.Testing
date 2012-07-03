@@ -3,10 +3,10 @@ using NHibernate;
 
 namespace AcklenAvenue.Data.NHibernate
 {
-    public abstract class SessionContainerConfigurator
+    public interface ISessionContainerConfigurator
     {
-        public Func<ISessionFactory, ISession> GetCurrentSession;
-        public Action<ISessionFactory> OpenNewSession;
-        public Action<ISessionFactory> DestroySession;        
+        Func<ISessionFactory, ISession> GetCurrentSession { get; }
+        Action<ISessionFactory> OpenNewSession { get; }
+        Action<ISessionFactory> DestroySession { get; }
     }
 }
