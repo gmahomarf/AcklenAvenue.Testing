@@ -10,7 +10,7 @@ CONFIG = "Debug"
 
 task :default => [:all]
 
-task :all => [:prepare, :compile, :tests ]
+task :all => [:prepare, :compile ]
 
 task :prepare do
 	require 'fileutils'
