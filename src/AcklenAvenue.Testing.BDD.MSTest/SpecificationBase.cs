@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SmartPay.BDDExtensions
+namespace AcklenAvenue.Testing.BDD.MSTest
 {
     public abstract class SpecificationBase
     {
