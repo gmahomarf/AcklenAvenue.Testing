@@ -1,17 +1,11 @@
 using System;
-using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SmartPay.BDDExtensions
+namespace AcklenAvenue.Testing.BDD.MSTest
 {
     public static class SpecificationExtensions
     {
-        public static T As<T>(this object castObject)
-        {
-            return (T) castObject;
-        }
-
         public static void ShouldContain(this string shouldContain, string desiredText)
         {
             try
@@ -21,7 +15,7 @@ namespace SmartPay.BDDExtensions
             catch
             {
                 Assert.Fail(string.Format("Expected to contain '{0}', but was not found in '{1}'.", desiredText,
-                                                  shouldContain));
+                                          shouldContain));
             }
         }
 
@@ -34,7 +28,7 @@ namespace SmartPay.BDDExtensions
             catch
             {
                 Assert.Fail(string.Format("Expected not to contain '{0}', but was found in '{1}'.", desiredText,
-                                                  shouldContain));
+                                          shouldContain));
             }
         }
 
@@ -68,56 +62,57 @@ namespace SmartPay.BDDExtensions
             }
             catch (Exception)
             {
-                Assert.Fail( string.Format( "\nExpected '{0}' to be greater than '{1}', but it was not.", shouldBeGreaterThan, compareTo ) );              
+                Assert.Fail(string.Format("\nExpected '{0}' to be greater than '{1}', but it was not.",
+                                          shouldBeGreaterThan, compareTo));
             }
         }
 
         public static void ShouldBeOfType<T>(this object compareObject)
         {
-            Assert.IsInstanceOfType(compareObject, typeof (T));            
+            Assert.IsInstanceOfType(compareObject, typeof (T));
         }
 
         public static void ShouldEqual(this string actual, string expected)
         {
-            var expectedLines = expected.Split(new[] {'\n'});
-            var actualLines = actual.Split(new[] { '\n' });
-            var maxLines = expectedLines.Length > actualLines.Length ? expected.Length : actualLines.Length;
+            string[] expectedLines = expected.Split(new[] {'\n'});
+            string[] actualLines = actual.Split(new[] {'\n'});
+            int maxLines = expectedLines.Length > actualLines.Length ? expected.Length : actualLines.Length;
 
-            for (var lineIndex = 0; lineIndex < maxLines; lineIndex++)
+            for (int lineIndex = 0; lineIndex < maxLines; lineIndex++)
             {
-                var expectedLine = expectedLines[lineIndex];
-                var actualLine = actualLines[lineIndex];
-                var maxChars = expectedLine.Length > actualLine.Length ? expectedLine.Length : actualLine.Length;
-                
-                for (var charIndex = 0; charIndex < maxChars; charIndex++)
+                string expectedLine = expectedLines[lineIndex];
+                string actualLine = actualLines[lineIndex];
+                int maxChars = expectedLine.Length > actualLine.Length ? expectedLine.Length : actualLine.Length;
+
+                for (int charIndex = 0; charIndex < maxChars; charIndex++)
                     if (expectedLine[charIndex] != actualLine[charIndex])
                     {
                         Assert.Fail(
                             string.Format(
                                 "Expected this: \nLine {2}: \"...{0}...\"\n\nbut found this:\n\nLine {2}: \"...{1}...\".\n\n    Expected:\n{4}\n\nActual:\n{5})",
-                                GetSection(expectedLine, charIndex), 
-                                GetSection(actualLine, charIndex), 
-                                lineIndex+1, 
-                                charIndex+1,
+                                GetSection(expectedLine, charIndex),
+                                GetSection(actualLine, charIndex),
+                                lineIndex + 1,
+                                charIndex + 1,
                                 AddLineNumbers(expected),
                                 AddLineNumbers(actual)));
                     }
             }
         }
 
-        private static string GetSection(string line, int charIndex)
+        static string GetSection(string line, int charIndex)
         {
-            var maxChars = line.Length;
-            var startIndex = (charIndex - 20 < 0 ? 0 : charIndex - 20);
-            var endIndex = (maxChars < 40 ? maxChars : 40);
-            return line.Substring(startIndex, endIndex);     
+            int maxChars = line.Length;
+            int startIndex = (charIndex - 20 < 0 ? 0 : charIndex - 20);
+            int endIndex = (maxChars < 40 ? maxChars : 40);
+            return line.Substring(startIndex, endIndex);
         }
 
-        private static string AddLineNumbers(string stringWithLines)
+        static string AddLineNumbers(string stringWithLines)
         {
-            var lines = stringWithLines.Split(new[] {'\n'});
+            string[] lines = stringWithLines.Split(new[] {'\n'});
             var sb = new StringBuilder();
-            for(var index = 0; index < lines.Length; index++)
+            for (int index = 0; index < lines.Length; index++)
             {
                 sb.AppendLine(string.Format("{0:000}: {1}", index + 1, lines[index]));
             }
@@ -144,7 +139,7 @@ namespace SmartPay.BDDExtensions
             }
             catch (Exception)
             {
-                Assert.Fail( string.Format( "\nExpected null but found not null." ) );
+                Assert.Fail(string.Format("\nExpected null but found not null."));
             }
         }
 

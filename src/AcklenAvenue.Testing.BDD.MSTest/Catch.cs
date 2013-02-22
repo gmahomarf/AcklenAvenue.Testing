@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AcklenAvenue.Testing.BDD.NUnit
+namespace AcklenAvenue.Testing.BDD.MSTest
 {
     public static class Catch
     {

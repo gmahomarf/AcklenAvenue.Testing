@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SmartPay.BDDExtensions
+namespace AcklenAvenue.Testing.BDD.MSTest
 {
     public static class ShouldEqualExceptionExtensions
     {
