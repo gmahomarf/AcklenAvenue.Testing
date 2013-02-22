@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ExpectedObjects;
 
 namespace AcklenAvenue.Testing.ExpectedObjects
 {
     public static class ListShouldEqualExtension
     {
-        public static void ShouldEqual<T>(this IList<T> expectedList, IList<T> actualList)
+        public static void ShouldEqual<T>(this IEnumerable<T> actual, IEnumerable<T> expected)
         {
+            var expectedList = expected.ToList();
+            var actualList = actual.ToList();
+
             var expectedCount = expectedList.Count;
             var actualCount = actualList.Count;
 
@@ -20,7 +24,7 @@ namespace AcklenAvenue.Testing.ExpectedObjects
                 var expectedObject = expectedList[i];
                 var actualObject = actualList[i];
 
-                expectedObject.ToExpectedObject().ShouldEqual<T>(actualObject);
+                expectedObject.ToExpectedObject().ShouldEqual(actualObject);
             }
         }
     }
