@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace AcklenAvenue.Expressions
+namespace AcklenAvenue.Testing.Moq
 {
     public class ScopedDictionary<TKey, TValue>
     {
