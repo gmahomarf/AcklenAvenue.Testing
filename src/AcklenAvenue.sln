@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Testing.BDD.NUnit", "AcklenAvenue.Testing.BDD.NUnit\AcklenAvenue.Testing.BDD.NUnit.csproj", "{E0FFD699-E7B5-44D9-A97B-0F52B3321E1E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Testing.BDD.MSTest", "AcklenAvenue.Testing.BDD.MSTest\AcklenAvenue.Testing.BDD.MSTest.csproj", "{85FA03CC-D860-4E29-B35C-3A3D6E0C0E2E}"

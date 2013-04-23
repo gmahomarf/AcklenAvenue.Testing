@@ -5,9 +5,13 @@ namespace AcklenAvenue.Testing.Moq
 {
     public static class ExpressionsExtensions
     {
-        public static bool Evaluate<T>(this Expression<Func<T, bool>> expression, T value)
+        public static void ShouldMatch<T>(this Expression<Func<T, bool>> actual, Expression<Func<T, bool>> expected)
         {
-            return expression.Compile()(value);
+            if (!ExpressionComparer.AreEqual(expected, actual))
+            {
+                throw new Exception(
+                    "The expressions didn't match but not sure why. Need to add more descriptions the reasons for failure to the ExpressionComparer.");
+            }
         }
     }
 }
