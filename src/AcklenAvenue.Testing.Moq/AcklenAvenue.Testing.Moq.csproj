@@ -44,8 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExpressionComparer.cs" />
-    <Compile Include="ExpressionsExtensions.cs" />
     <Compile Include="ScopedDictionary.cs" />
     <Compile Include="ThatHas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
