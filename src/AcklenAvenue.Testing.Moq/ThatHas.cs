@@ -10,6 +10,6 @@ namespace AcklenAvenue.Testing.Moq
         public static FuncComparisonBuilder<T> AnFuncFor<T>()
         {
             return new FuncComparisonBuilder<T>();
-        }
+        }       
     }
 }

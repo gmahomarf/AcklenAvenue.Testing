@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Testing.Expect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Testing.Moq", "AcklenAvenue.Testing.Moq\AcklenAvenue.Testing.Moq.csproj", "{CD7347A5-80ED-4A45-BC86-9665CE3C6490}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Testing.Moq.ExpectedObjects", "AcklenAvenue.Testing.Moq.ExpectedObjects\AcklenAvenue.Testing.Moq.ExpectedObjects.csproj", "{A7FA7937-993F-475C-9A1C-BCAB63A40157}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{CD7347A5-80ED-4A45-BC86-9665CE3C6490}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CD7347A5-80ED-4A45-BC86-9665CE3C6490}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CD7347A5-80ED-4A45-BC86-9665CE3C6490}.Release|x86.ActiveCfg = Release|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A7FA7937-993F-475C-9A1C-BCAB63A40157}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
