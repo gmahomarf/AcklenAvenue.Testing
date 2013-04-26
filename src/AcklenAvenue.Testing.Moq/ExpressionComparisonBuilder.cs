@@ -33,6 +33,7 @@ namespace AcklenAvenue.Testing.Moq
             return Match.Create<Expression<Func<T, bool>>>(
                 actualExpression =>
                     {
+                        var passed = true;
                         _matching.ForEach(m =>
                                               {
                                                   if (actualExpression.Compile()(m))
@@ -40,24 +41,28 @@ namespace AcklenAvenue.Testing.Moq
 
                                                   var serializer = new JavaScriptSerializer();
                                                   string json = serializer.Serialize(m);
-                                                  throw new Exception(
-                                                      "The expression passed in from the production code did not match the required object: " +
+                                                  Console.WriteLine("The expression passed in from the production code did not match the required object: " +
                                                       json);
+                                                  passed = false;
                                               });
 
-                        _notMatching.ForEach(m =>
-                                                 {
-                                                     if (!actualExpression.Compile()(m))
-                                                         return;
+                        if (passed)
+                        {
+                            _notMatching.ForEach(m =>
+                                                     {
+                                                         if (!actualExpression.Compile()(m))
+                                                             return;
 
-                                                     var serializer = new JavaScriptSerializer();
-                                                     string json = serializer.Serialize(m);
-                                                     throw new Exception(
-                                                         "The expression passed in from the production code matched an object that it shouldn't have: " +
-                                                         json);
-                                                 });
+                                                         var serializer = new JavaScriptSerializer();
+                                                         string json = serializer.Serialize(m);
+                                                         Console.WriteLine(
+                                                             "The expression passed in from the production code matched an object that it shouldn't have: " +
+                                                             json);
+                                                         passed = false;
+                                                     });
+                        }
 
-                        return true;
+                        return passed;
                     });
         }
     }

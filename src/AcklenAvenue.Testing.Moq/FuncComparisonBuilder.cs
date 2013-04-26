@@ -32,32 +32,43 @@ namespace AcklenAvenue.Testing.Moq
             return Match.Create<Func<T, bool>>(
                 actualFunc =>
                     {
-                        _matching.ForEach(m =>
-                                              {
-                                                  if (actualFunc(m))
-                                                      return;
+                        var passing = true;
+                        _matching
+                            .ForEach(m =>
+                                         {
+                                             if (actualFunc(m))
+                                                 return;
 
-                                                  var serializer = new JavaScriptSerializer();
-                                                  string json = serializer.Serialize(m);
-                                                  throw new Exception(
-                                                      "The function passed in from the production code did not match the required object: " +
-                                                      json);
-                                              });
+                                             string message =
+                                                 "The function passed in from the production code did not match the required object: ";
+                                             ReportWarningToConsole(m, message);
+                                             passing = false;
+                                         });
 
-                        _notMatching.ForEach(m =>
-                                                 {
-                                                     if (!actualFunc(m))
-                                                         return;
+                        if (passing)
+                        {
+                            _notMatching
+                                .ForEach(m =>
+                                             {
+                                                 if (!actualFunc(m))
+                                                     return;
 
-                                                     var serializer = new JavaScriptSerializer();
-                                                     string json = serializer.Serialize(m);
-                                                     throw new Exception(
-                                                         "The function passed in from the production code matched an object that it shouldn't have: " +
-                                                         json);
-                                                 });
+                                                 string message =
+                                                     "The function passed in from the production code matched an object that it shouldn't have: ";
+                                                 ReportWarningToConsole(m, message);
+                                                 passing = false;
+                                             });
+                        }
 
-                        return true;
+                        return passing;
                     });
+        }
+
+        static void ReportWarningToConsole(T m, string message)
+        {
+            var serializer = new JavaScriptSerializer();
+            string json = serializer.Serialize(m);
+            Console.WriteLine(message + json);
         }
     }
 }

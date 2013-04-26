@@ -7,7 +7,7 @@ namespace AcklenAvenue.Testing.Moq
             return new ExpressionComparisonBuilder<T>();
         }
 
-        public static FuncComparisonBuilder<T> AnFuncFor<T>()
+        public static FuncComparisonBuilder<T> AFuncFor<T>()
         {
             return new FuncComparisonBuilder<T>();
         }       

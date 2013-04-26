@@ -18,9 +18,10 @@ namespace AcklenAvenue.Testing.Moq.ExpectedObjects
                                            }
                                            catch (Exception ex)
                                            {
-                                               throw new Exception(
-                                                   "The mock constraint failed because an unexpected object was passed to the mock at runtime.",
-                                                   ex);
+                                               Console.WriteLine(
+                                                   "The mock constraint failed because an unexpected object was passed to the mock at runtime.\r\n" +
+                                                   ex.Message);
+                                               return false;
                                            }
                                        });
         }
