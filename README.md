@@ -4,7 +4,7 @@ AcklenAvenue.Testing
 
 Here's a helpful "live template" (ReSharper) that you can use with the BDD.MSTest extentions:
 
-[TestClass]
+`[TestClass]
 public class when_$something_happens$ : SpecificationBase
 {
     protected override void Context()
@@ -22,4 +22,4 @@ public class when_$something_happens$ : SpecificationBase
     {
         _result.ShouldEqual(Something);
     }
-}
+}`
