@@ -1,42 +1,46 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AcklenAvenue.Testing.BDD.MSTest
 {
+    [TestClass]
     public abstract class SpecificationBase
     {
+        static int _observationCount;
+        static int _observationsTownDown;
+        static bool _specificationExecuting;
+
+        protected SpecificationBase()
+        {
+            int observations =
+                GetType().GetMethods().Count(
+                    x => x.GetCustomAttributes(true).Any(y => y is TestMethodAttribute));
+
+            _observationCount = observations;
+        }
+
         public TestContext TestContext { get; set; }
 
-        [ClassInitialize]
+        [TestInitialize]
         public void BuildSpecificationContext()
         {
+            if (_specificationExecuting) return;
+
+            _specificationExecuting = true;
             Context();
             BecauseOf();
         }
 
-        [ClassCleanup]
-        public void SpecificationCleanup()
-        {
-            Cleanup();
-        }
-
-        [TestInitialize]
-        public void InitializeTest()
-        {
-            BeforeEach();
-        }
-
         [TestCleanup]
-        public void CleanupTest()
+        public void SpecificationTeardown()
         {
-            BeforeEach();
-        }
+            _observationsTownDown++;
 
-        protected virtual void BeforeEach()
-        {
-        }
-
-        protected virtual void AfterEach()
-        {
+            if (_observationsTownDown == _observationCount)
+            {
+                Cleanup();
+                _specificationExecuting = false;
+            }
         }
 
         protected virtual void Context()
