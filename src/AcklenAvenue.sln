@@ -17,6 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Testing.Moq.Sp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcklenAvenue.Testing.Moq.ExpectedObjects.Specs", "AcklenAvenue.Testing.Moq.ExpectedObjects.Specs\AcklenAvenue.Testing.Moq.ExpectedObjects.Specs.csproj", "{74E7B1BA-7D1A-4B33-B881-AC00370DE177}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{788B9636-3617-4F9C-8901-0BD843A08A8D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

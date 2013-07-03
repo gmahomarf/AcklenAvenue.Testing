@@ -8,12 +8,11 @@ namespace AcklenAvenue.Testing.Moq.ExpectedObjects
     {
         public static T Object<T>(T expectedObject)
         {
-            return Match.Create<T>(x =>
+            return Match.Create<T>(actual =>
                                        {
-                                           var actual = x.ToExpectedObject();
                                            try
                                            {
-                                               actual.ShouldEqual(expectedObject);
+                                               expectedObject.ToExpectedObject().ShouldEqual(actual);
                                                return true;
                                            }
                                            catch (Exception ex)

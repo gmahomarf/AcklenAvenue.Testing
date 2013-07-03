@@ -6,19 +6,39 @@ namespace AcklenAvenue.Testing.BDD.MSTest
     {
         public TestContext TestContext { get; set; }
 
-        [TestInitialize]
+        [ClassInitialize]
         public void BuildSpecificationContext()
         {
             Context();
             BecauseOf();
         }
 
-        [TestCleanup]
+        [ClassCleanup]
         public void SpecificationCleanup()
         {
-            Cleanup();            
+            Cleanup();
         }
-        
+
+        [TestInitialize]
+        public void InitializeTest()
+        {
+            BeforeEach();
+        }
+
+        [TestCleanup]
+        public void CleanupTest()
+        {
+            BeforeEach();
+        }
+
+        protected virtual void BeforeEach()
+        {
+        }
+
+        protected virtual void AfterEach()
+        {
+        }
+
         protected virtual void Context()
         {
         }

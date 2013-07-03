@@ -16,6 +16,7 @@
     <tags>Tag1 Tag2</tags>
 	<dependencies>
       <dependency id="AcklenAvenue.Testing"/>
+      <dependency id="Microsoft.VisualStudio.QualityTools.UnitTestFramework"/>
     </dependencies>  
   </metadata>
 </package>

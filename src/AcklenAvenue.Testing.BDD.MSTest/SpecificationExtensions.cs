@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -6,6 +8,22 @@ namespace AcklenAvenue.Testing.BDD.MSTest
 {
     public static class SpecificationExtensions
     {
+        public static void ShouldContain<T>(this IEnumerable<T> list, T shouldContainThis)
+        {
+            if (!list.Any(x => x.Equals(shouldContainThis)))
+            {
+                throw new Exception("The list did not contain the given item.");
+            }            
+        }
+
+        public static void ShouldNotContain<T>(this IEnumerable<T> list, T shouldNotContainThis)
+        {
+            if (list.Any(x => x.Equals(shouldNotContainThis)))
+            {
+                throw new Exception("The list contained the given item but shouldn't have.");
+            }
+        }
+
         public static void ShouldContain(this string shouldContain, string desiredText)
         {
             try
