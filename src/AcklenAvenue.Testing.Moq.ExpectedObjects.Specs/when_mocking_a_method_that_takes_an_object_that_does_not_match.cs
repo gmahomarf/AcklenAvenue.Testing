@@ -22,7 +22,7 @@ namespace AcklenAvenue.Testing.Moq.ExpectedObjects.Specs
 
                                     _updatedWidget = new Widget {Color = "blue"};
 
-                                    _mock.Setup(x => x.Paint(WithExpected.Object(_widgetToUpdate)))
+                                    _mock.Setup(x => x.Paint(WithExpected.Object(_widgetToUpdate, AllowAnonymous.No)))
                                         .Returns(_updatedWidget);
                                 };
 

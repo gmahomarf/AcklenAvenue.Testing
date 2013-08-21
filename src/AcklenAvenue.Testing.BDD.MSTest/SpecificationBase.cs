@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AcklenAvenue.Testing.BDD.MSTest
@@ -6,40 +7,40 @@ namespace AcklenAvenue.Testing.BDD.MSTest
     [TestClass]
     public abstract class SpecificationBase
     {
-        static int _observationCount;
         static int _observationsTownDown;
-        static bool _specificationExecuting;
-
-        protected SpecificationBase()
-        {
-            int observations =
-                GetType().GetMethods().Count(
-                    x => x.GetCustomAttributes(true).Any(y => y is TestMethodAttribute));
-
-            _observationCount = observations;
-        }
+        static readonly IDictionary<string, int> SpecificationsInMemory = new Dictionary<string, int>();
 
         public TestContext TestContext { get; set; }
 
         [TestInitialize]
         public void BuildSpecificationContext()
         {
-            if (_specificationExecuting) return;
+            bool specInMemory = SpecificationsInMemory.ContainsKey(GetType().ToString());
+            if (specInMemory) return;
 
-            _specificationExecuting = true;
             Context();
             BecauseOf();
+
+            int observationCount =
+                GetType().GetMethods().Count(
+                    x => x.GetCustomAttributes(true).Any(y => y is TestMethodAttribute));
+
+            SpecificationsInMemory.Add(GetType().ToString(), observationCount);
         }
 
         [TestCleanup]
         public void SpecificationTeardown()
         {
-            _observationsTownDown++;
-
-            if (_observationsTownDown == _observationCount)
+            var count = 0;
+            if (SpecificationsInMemory.TryGetValue(GetType().ToString(), out count))
             {
-                Cleanup();
-                _specificationExecuting = false;
+                _observationsTownDown++;
+
+                if (_observationsTownDown == count)
+                {
+                    Cleanup();
+                    SpecificationsInMemory.Remove(GetType().ToString());
+                }
             }
         }
 

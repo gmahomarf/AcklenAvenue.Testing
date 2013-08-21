@@ -137,7 +137,7 @@ namespace AcklenAvenue.Testing.BDD.MSTest
             return sb.ToString();
         }
 
-        public static void ShouldEqual(this object compareObject, object shouldEqualObject)
+        public static void ShouldEqual<T>(this T compareObject, T shouldEqualObject)
         {
             try
             {

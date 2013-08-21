@@ -6,12 +6,18 @@ namespace AcklenAvenue.Testing.Moq.ExpectedObjects
 {
     public static class WithExpected
     {
-        public static T Object<T>(T expectedObject)
+        public static T Object<T>(T expectedObject, AllowAnonymous allowAnonymous = AllowAnonymous.No)
         {
             return Match.Create<T>(actual =>
                                        {
                                            try
                                            {
+                                               if(allowAnonymous == AllowAnonymous.Yes)
+                                               {
+                                                   expectedObject.ToExpectedObject().IgnoreTypes().ShouldEqual(actual);
+                                                   return true;
+                                               }
+
                                                expectedObject.ToExpectedObject().ShouldEqual(actual);
                                                return true;
                                            }

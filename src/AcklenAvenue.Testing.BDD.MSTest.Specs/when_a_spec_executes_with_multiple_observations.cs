@@ -6,7 +6,7 @@ namespace AcklenAvenue.Testing.BDD.MSTest.Specs
     public class when_a_spec_executes_with_multiple_observations : SpecificationBase
     {
         static int _contextExecutionCount;
-
+        
         protected override void Context()
         {
             _contextExecutionCount++;
